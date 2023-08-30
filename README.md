@@ -1,26 +1,13 @@
-# Milestone 6
-The compiler is developed in the `Go` language version 1.19 using **ANTLR version 4.13.0** (not the 4.11.1 version initially provided; see below).
-
-### Obs about ANTLR: 
-
-As noted in this [link](https://github.com/antlr/antlr4/blob/master/doc/go-target.md), ANTLR changed the path to the Go runtimes from `github.com/antlr4-go/antlr` to `antlr4-go/antlr`
-
-I had troubles using the ANTLR version 4.11.1 provided along with the `go` runtimes. My solution was to update the `.jar` file to the 4.13.0 version and use the new paths to the Go runtimes mentioned above. 
-
-The `grammars` directory in the repo already contains the `antlr-4.13.0-complete.jar` and `go` `.mod` file and imports and `generate.sh` reflects the change, so there should be no problem running. I tested the setup in the UChicago CS machines, and everything is working fine.
-
+# Golite-Compiler
+This is a compiler for a subset of the `Go` language, which we call `Golite`. The compiler is developed in the `Go` language version 1.19 and using **ANTLR version 4.13.0**
 
 ## Usage
-Below are the steps for building and running the compiler in the UChicago CS machines 
+Below are the steps for building and running the compiler in linux machines 
 
-1) Load `go` version 1.19 in the CS machine using the command:
-`module load golang/1.19`
-
-2) clone the repository using 
-`git clone -b m4 https://github.com/mpcs51300-sum23/proj-mashalimay`
+1) clone the repository using 
+`git clone https://github.com/mshalimay/golite-compiler`
 
 3) Navigate to the directory where the repo was downloaded and execute `go mod tidy` to download the required dependencies
-
 
 
 4) Building the *lexer* and *parser* using ANTLR
@@ -66,23 +53,3 @@ Below are the steps for building and running the compiler in the UChicago CS mac
   - `./golite -s -e -o myExecutable ../benchmarks/filename.golite`
   - This will create the file `../benchmarks/filename.s` with the translation of the source code to ARM assembly.
   - This will create the file `../benchmarks/myExecutable.out`
-
-
-# LLVM 
-LLVM is fully working for all benchmarks. To verify, generate the llvm file as above and:
-- navigate to the folder where the `ll` file was created. 
-  - E.g.: `cd ../golite-benchmarks/thermopylae`
-- compile the `ll` file using llvm tools. 
-  - E.g.: `llc -filetype=asm thermopylae.ll -o thermopylae.s`
-- compile the assembly file generated using `clang`. 
-  - E.g.: `llc clang thermopylae.s -o thermopylae -lm -lc`
-- run the file with the necessary inputs.
-  - E.g.: `./thermopylae < input`
-
-
-# ARM Assembly
-The ARM assembly is not fully implemented, so some codes might not compile. This is why I provided the additional flag `-e`, so can generate the `.s` file without necessarily generating an executable file.
-
-
-
-
