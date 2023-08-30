@@ -1,0 +1,7 @@
+var a int;
+func main () {
+   var b int;
+   a = 5;
+   b = ((a + b) * 2) - 3;
+   printf("%d\n%d\n",b,a);
+}

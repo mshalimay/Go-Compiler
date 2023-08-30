@@ -1,0 +1,27 @@
+type Point2D struct {
+    x int;
+    y int;
+};
+type distance struct {
+    cord *Point2D;
+    distance int;
+};
+
+//Control-flow case
+func bar (num int) int {
+   if (num == 0) {
+     return 1;
+   } else {
+     if (num >= 1) {
+       return 1;
+     }else {
+       return -1;
+     }
+   }
+}
+
+func main(){
+  var a int;
+  a = foo(0);
+  
+}

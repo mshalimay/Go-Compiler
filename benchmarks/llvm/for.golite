@@ -1,0 +1,9 @@
+
+func main(){
+    var x int;
+    x = -10;
+
+    for (x > 0) {
+        x = x+1;
+    }
+}

@@ -1,0 +1,24 @@
+// test if typechecks of  `typedecl`, `declaration` `function` identify conflicting identifiers
+// this totally check the typecheks of `typedecl`, `declaration`
+
+type MyStruct1 struct{
+    b       *MyStruct1;
+};
+
+
+type MyStruct3 struct{
+    d       int;
+};
+
+var MyStruct1 int;
+
+func MyStruct1(){
+    return;
+}
+
+func main() {
+
+    var a *MyStruct1;
+
+    a.b.c.d = myfun(1, 1);
+ }

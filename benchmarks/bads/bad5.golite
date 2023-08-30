@@ -1,0 +1,38 @@
+// test typechecks in delete, scan, new
+
+
+type Number1 struct{
+    p1   *Number2;
+};
+
+type Number2 struct{
+    p2   *Number3;
+};
+
+
+type Number3 struct{
+    value   int;
+};
+
+var number int;
+
+func main() {
+    var x *Number1;
+    var y int;
+    var z int;
+    var b bool;
+    
+
+    x = new Number1;     // correct
+    z = new number;        // incorrect
+    y = new Number1;    // incorrect
+
+
+    delete x;           // corret
+    delete y;           // incorrect
+
+    x = scan;           // incorrect
+    b = scan;           // incorrect
+    y = scan;           // correct
+
+}

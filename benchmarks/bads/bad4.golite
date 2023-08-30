@@ -1,0 +1,53 @@
+// test some assignments type checks
+
+
+type Number1 struct{
+    p1   *Number2;
+};
+
+type Number2 struct{
+    p2   *Number3;
+};
+
+
+type Number3 struct{
+    value   int;
+};
+
+
+type a struct{
+    myVal int;
+    myBool bool;
+};
+
+
+func main() {
+    var x int;
+    var a *Number1;
+    var b bool;
+    var c *foo;
+
+    // correct
+    x = 1;
+    x = a.p1.p2.value;
+    a = nil;
+    a.p1.p2.value = x*2+1;
+
+    x = f;
+
+   
+
+    // incorrect
+    x = true;
+    x = b;
+    x = a;
+    x = nil;
+    b = false;
+    x = x >1;
+
+
+    b = c;
+
+    b = d;
+
+}

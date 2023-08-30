@@ -1,0 +1,44 @@
+// test function calls and invocations
+
+
+type Number struct{
+    val     int;
+};
+
+
+func add(a int, b int) int {
+    var mult int;
+
+    return (a+b)*mult;
+}
+
+
+func add2(a int, b *Number) int {
+    b.val = b.val + a;
+
+    return c.val;
+}
+
+
+func doThings(a int, b bool){
+    return;
+}
+
+
+func main(){
+    var x int;
+    var b bool;
+    var n *Number;
+
+    x = add(x, b);
+    x = add(x, 2*3);
+    x = add(1,2,3,4);
+    x = add(1,2,b);
+
+    doThings();         // incorrect
+    doThings(x,b);      // correct
+
+    x = add(x, n.val);  // correct
+
+    x = add2(x,n);      // correct
+}

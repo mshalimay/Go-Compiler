@@ -1,0 +1,12 @@
+//test prints
+
+
+func main() {
+    var a, b int;
+    var x, y bool;
+    printf("Calculations: %d%d%d", a,b, a+b);
+    printf("Calculations: %d%d", a,b, a+b);
+
+    printf("Calculations: %d%d%d", a,b, x==y);
+
+}

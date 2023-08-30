@@ -1,0 +1,76 @@
+// test a group of errors in building the symbol table, fun struct and var declarations; return types; assignments;
+// accessing fields; main with parameters, main with return;
+
+type MyStruct1 struct{
+    b       *MyStruct2;
+    b       int;  // duplicate names
+    h       *foo; // incorrect, foo does not exist
+};
+
+
+type MyStruct2 struct{
+    c       *MyStruct3;
+};
+
+type MyStruct2 struct{ // conflicting names
+    z           int; 
+};
+
+type MyStruct3 struct{
+    d       int;
+};
+
+
+var x, y, z int;
+var x int;
+var p *foo;     // incorrect, foo does not exist
+var repeated *MyStruct2; // conflicting names
+
+
+func add(a int, a bool, b int) int{    // duplicate parameter names
+    var c int; 
+    var d *foo;   // variable with same name as parameter and unknown type
+    var c bool;
+    var d int;
+    return a+b;
+}
+
+func sub(a int, b int, c int) *foo{
+    return a+b;  // incorrect return type
+}
+
+func retNothing(){
+    return 1;
+}
+
+
+func main(p int) { // main should not have parameters
+
+    var a *MyStruct2;
+    var x int;
+    var b bool;
+
+    a.b.c.d = myfun(1, 1); // incorrect access of fields, call of unknown function
+
+    a.c.d = 1;  // correct access of fields
+
+    a = c;      // assignment to non-declared
+
+    x = b;      // assignment of int to bool
+
+    x = a;      // assignment of int to pointer
+
+    b = x;      // assignment of bool to int
+
+    a = nil;    // this is ok
+    
+    x = nil;    // this is not
+
+    a.c.d  = 1 + 2 * 3 / 4 - 18 + a.c.d; // this is correct
+
+    x = -a;  // `-` applied to pointer to struct
+
+    x = -x; // this is ok
+
+    return true;  // main should not have return
+ }

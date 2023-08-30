@@ -1,0 +1,70 @@
+// mixed tests for typechecks of `field`, `conditional`, `for` and `binops`
+
+type Number1 struct{
+    p1   *Number2;
+};
+
+type Number2 struct{
+    p2   *Number3;
+};
+
+
+type Number3 struct{
+    value   int;
+};
+
+
+type a struct{
+    myVal int;
+    myBool bool;
+};
+
+
+func main() {
+    var x int;
+    var a *Number1;
+    var b *Number1;
+    var c *Number2;
+    var boolean bool;
+    
+    
+    if (true == false || x+1>=1 && x == 2 || x * 3 / 2 - 10  <= 2 || a.p1.p2.value == x) {
+        x  = 100 * a.p1.p2.value;
+    } 
+
+    // this is ok
+    if (true == boolean || a.p1.p2.value == x) {
+        x  = 100 * a.p1.p2.value;
+    } 
+
+    // comparison of int to pointer
+    if (x==a){
+
+    }
+
+    // first is ok, second is not.
+    if (a == b && a==c){
+    }
+
+    // non-boolean in conditional
+    if (x*3) {
+    }
+
+    for(x){
+
+    }
+
+    // invalid comparison types
+    for (x > true){}
+
+    if (1 < true){}
+
+    if(boolean >= x){}
+
+    if(x <= a){}
+
+    if(!a){}
+    
+    if(x==boolean){}
+
+ }
