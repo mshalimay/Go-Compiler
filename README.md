@@ -1,5 +1,9 @@
 # Golite-Compiler
-This is a compiler for a subset of the `Go` language, which we call `Golite`. The compiler is developed in the `Go` language version 1.19 and using **ANTLR version 4.13.0**
+This is a compiler for a subset of the `Go` language, which we call `Golite`. The compiler is developed in the `Go` language version 1.19.
+
+More details on implementation can be found in `report.pdf`.
+
+All the relevant scripts uses heavily the [visitor's pattern]([url](https://en.wikipedia.org/wiki/Visitor_pattern)). To understand the codebase, I recommend refering to the `grammars/golite-compiler` for the general structure of the language. Then traversing the AST functions (such as the `String()` function) starting from `Program`, then `Declarations`, `Functions`, `TypeDecls`, then all `Statement` nodes then all `Expression` nodes (see the `ast/ast.go` for a list of each type of node).
 
 ## Usage
 Below are the steps for building and running the compiler in linux machines 
