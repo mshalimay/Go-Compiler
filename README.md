@@ -5,7 +5,7 @@ Implementation includes:
 - AST construction; syntactic and semantic analysis;
 - Intermediate representation / code generation in LLVM;
 - Machine code generation in ARM
-- Register optimization with graph coloring (to be finalized yet)
+- Register optimization with graph coloring (partially implemented)
 
 
 More details on implementation can be found in `report.pdf`.
