@@ -1,5 +1,12 @@
 # Golite-Compiler
 This is a compiler for a subset of the `Go` language, which we call `Golite`. The compiler is developed in the `Go` language version 1.19.
+Implementation includes:
+- Lexing and Parsing building on `ANTLR`;
+- AST construction; syntactic and semantic analysis;
+- Intermediate representation / code generation in LLVM;
+- Machine code generation in ARM
+- Register optimization with graph coloring (to be finalized yet)
+
 
 More details on implementation can be found in `report.pdf`.
 
