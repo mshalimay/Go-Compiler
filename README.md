@@ -6,6 +6,7 @@ Implementation includes:
 - Intermediate representation / code generation in LLVM;
 - Machine code generation in ARM
 - Register optimization with graph coloring (partially implemented)
+- OOP architechture
 
 
 More details on implementation can be found in `report.pdf`.
