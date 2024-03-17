@@ -11,7 +11,7 @@ Implementation includes:
 
 More details on implementation can be found in `report.pdf`.
 
-All the relevant scripts uses heavily the [visitor's pattern]([url](https://en.wikipedia.org/wiki/Visitor_pattern)). To understand the codebase, I recommend:
+All the relevant scripts uses heavily the [Visitor's Pattern]([url](https://en.wikipedia.org/wiki/Visitor_pattern)) and recursive functions. To understand the codebase, I recommend:
 - Refering to the `grammars/golite-compiler` for the general structure of the language.
 - Traversing the Abstract Syntax Tree (AST) function calls. For instance, step in the `String()` and trace its execution: `Program` -> `Declarations` -> `Functions` -> `TypeDecls` -> all `Statement` nodes ->  all `Expression` nodes
    - Obs: see `ast/ast.go` for a list of each node type.
