@@ -1,5 +1,5 @@
 # Golite-Compiler
-This is a compiler for a subset of the `Go` language, which we call `Golite`. The compiler is developed in the `Go` language version 1.19.
+This repository implements a compiler for a subset of the `Go` language, which we call `Golite`. The compiler is developed in the `Go` language version 1.19.
 Implementation includes:
 - Lexing and Parsing building on `ANTLR`;
 - AST construction; syntactic and semantic analysis;
